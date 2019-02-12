@@ -1,18 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-tabs v-model="activeNames" type="border-card">
+      <el-tab-pane label="默认 (全部自适应)" name="all-fit">
+        <AllFit></AllFit>
+      </el-tab-pane>
+      <el-tab-pane label="部分自适应" name="part-fit"></el-tab-pane>
+      <el-tab-pane label="部分不适应" name="part-not-fit"></el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import AllFit from './views/AllFit'
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    AllFit,
+    // PartFit,
+    // PartNotFit,
+  },
+  data () {
+    return {
+      activeNames: 'all-fit'
+    }
+  },
 }
 </script>
 
