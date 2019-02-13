@@ -1,6 +1,6 @@
 {
   "name": "af-table-column",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "af-table-column: auto fit table column, 自适应宽度的列组件",
   "private": false,
   "scripts": {
