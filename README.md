@@ -1,4 +1,4 @@
-# af-table-column
+# [af-table-column](https://github.com/legendJaden/AFTableColumn)
 
 ### 简介
 基于 `element-ui` 组件库的 `el-table-column` 组件, 支持自适应列宽功能

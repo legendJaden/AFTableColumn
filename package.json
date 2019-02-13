@@ -10,6 +10,10 @@
     "lint": "vue-cli-service lint"
   },
   "main": "./dist/af-table-column.common.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/legendJaden/AFTableColumn"
+  },
   "files": [
     "dist/*",
     "public/*",
