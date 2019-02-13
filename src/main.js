@@ -9,7 +9,6 @@ import {
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 // import AFTableColumn from 'auto-fit-table-column'
-import constants from './configs/constants'
 import mockData from './configs/mockData'
 
 // 全局组件
@@ -25,7 +24,6 @@ Vue.use(Button)
 // Vue.use(AFTableColumn)
 Vue.use(globalComponents)
 
-Vue.prototype.$consts = constants
 Vue.prototype.$mockData = mockData
 
 new Vue({

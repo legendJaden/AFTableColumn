@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import $consts from '../../configs/constants'
 export default {
   name: 'af-table-column',
   computed: {
@@ -62,12 +63,12 @@ export default {
     },
     // 字体大小
     fontSize () {
-      return this.$attrs.fontSize || (this.$ELEMENT || {}).fontSize || this.$consts.fontSize
+      return this.$attrs.fontSize || (this.$ELEMENT || {}).fontSize || $consts.fontSize
     },
     // 字体比例
     fontRate () {
       return {
-        ...this.$consts.fontRate, // 默认值
+        ...$consts.fontRate, // 默认值
         ...(this.$ELEMENT || {}).fontRate || {}, // 根注册参数 (Vue.use 时的第二个参数)
         ... this.$attrs.fontRate || {}, // 父组件属性
       }
