@@ -1,5 +1,5 @@
 <template>
-  <el-table border stripe :data="$mockData.tableData" :fitAll="false">
+  <el-table border stripe :data="$mockData.tableData" :autoFit="false">
     <table-column label="占位列" prop="placeholder"></table-column>
     <table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></table-column>
     <table-column label="定宽100少" prop="fixedLess" width="100"></table-column>

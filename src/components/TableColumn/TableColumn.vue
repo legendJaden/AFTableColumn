@@ -45,7 +45,7 @@ export default {
     },
     // 是否自适应列宽, 默认是
     isFit () {
-      return (this.$parent.$attrs.fitAll === undefined && this.$attrs.fit === undefined) || (this.$parent.$attrs.fitAll === false && this.$attrs.fit !== undefined)
+      return (this.$parent.$attrs.autoFit === undefined && this.$attrs.fit === undefined) || (this.$parent.$attrs.autoFit === false && this.$attrs.fit !== undefined)
     },
     // 为存在scope的添加className
     className () {

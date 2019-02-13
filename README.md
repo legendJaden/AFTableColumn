@@ -20,7 +20,7 @@ Vue.use(TableColumn)
 ```
 // list.vue
 <template>
-  <el-table :data="data" fitAll>
+  <el-table :data="data" autoFit>
     <table-column label="表头" prop="字段"></table-column>
   </el-table>
 </template>
