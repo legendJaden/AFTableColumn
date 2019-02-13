@@ -8,6 +8,7 @@ import {
   Button,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
+// import AFTableColumn from 'auto-fit-table-column'
 import constants from './configs/constants'
 import mockData from './configs/mockData'
 
@@ -21,6 +22,7 @@ Vue.use(TableColumn)
 Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Button)
+// Vue.use(AFTableColumn)
 Vue.use(globalComponents)
 
 Vue.prototype.$consts = constants

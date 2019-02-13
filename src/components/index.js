@@ -1,10 +1,10 @@
 import Vue from 'vue'
 
-import TableColumn from './TableColumn'
+import AFTableColumn from './AFTableColumn'
 
 // 导入需要被全局注册的组件
 const globalComponents = [
-  TableColumn,
+  AFTableColumn,
 ]
 
 globalComponents.install = () => {

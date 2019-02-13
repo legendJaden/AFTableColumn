@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'table-column',
+  name: 'af-table-column',
   computed: {
     // table数据
     values () {

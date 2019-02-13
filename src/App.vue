@@ -6,11 +6,11 @@
         <AllFit></AllFit>
       </el-tab-pane>
       <el-tab-pane label="部分不适应" name="part-not-fit">
-        <div class="el-table">设置 <code>&lt;table-column :fit="false"&gt;</code> 者不适应</div>
+        <div class="el-table">设置 <code>&lt;af-table-column :fit="false"&gt;</code> 者不适应</div>
         <PartNotFit></PartNotFit>
       </el-tab-pane>
       <el-tab-pane label="部分自适应" name="part-fit">
-        <div class="el-table">设置 <code>&lt;el-table :autoFit="false"&gt;</code>后, 设置 <code>&lt;table-column fit&gt;</code> 者自适应</div>
+        <div class="el-table">设置 <code>&lt;el-table :autoFit="false"&gt;</code>后, 设置 <code>&lt;af-table-column fit&gt;</code> 者自适应</div>
         <PartFit></PartFit>
       </el-tab-pane>
     </el-tabs>

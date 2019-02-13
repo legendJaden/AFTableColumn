@@ -1,29 +1,29 @@
 <template>
   <el-table border stripe :data="$mockData.tableData">
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></table-column>
-    <table-column label="定宽100少" prop="fixedLess" width="100"></table-column>
-    <table-column label="固定宽度100-多" prop="fixedMore" width="100"></table-column>
-    <table-column label="自由宽度-少1" prop="freedomLess1"></table-column>
-    <table-column label="自由宽度-少2" prop="freedomLess2"></table-column>
-    <table-column label="自由宽度-多1" prop="freedomMore1"></table-column>
-    <table-column label="freedom-more2" prop="freedomMore2"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="占位列" prop="placeholder"></table-column>
-    <table-column label="贴边 (自定义)" fixed="right">
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></af-table-column>
+    <af-table-column label="定宽100少" prop="fixedLess" width="100"></af-table-column>
+    <af-table-column label="固定宽度100-多" prop="fixedMore" width="100"></af-table-column>
+    <af-table-column label="自由宽度-少1" prop="freedomLess1"></af-table-column>
+    <af-table-column label="自由宽度-少2" prop="freedomLess2"></af-table-column>
+    <af-table-column label="自由宽度-多1" prop="freedomMore1"></af-table-column>
+    <af-table-column label="freedom-more2" prop="freedomMore2"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="贴边 (自定义)" fixed="right">
       <template slot-scope="scope">
         <el-button>{{scope.row.fix}}</el-button>
       </template>
-    </table-column>
+    </af-table-column>
   </el-table>
 </template>
 

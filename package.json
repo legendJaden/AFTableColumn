@@ -1,7 +1,7 @@
 {
-  "name": "auto-fit-table-column",
-  "version": "0.1.1",
-  "description": "自适应宽度的列表组件 table-column",
+  "name": "af-table-column",
+  "version": "1.0.0",
+  "description": "af-table-column: auto fit table column, 自适应宽度的列组件",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,7 +9,7 @@
     "package": "vue-cli-service build --target lib --name auto-fit-table-column ./src/components/TableColumn/index.js",
     "lint": "vue-cli-service lint"
   },
-  "main": "./dist/auto-fit-table-column.common.js",
+  "main": "./dist/af-table-column.common.js",
   "files": [
     "dist/*",
     "public/*",
