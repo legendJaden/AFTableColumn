@@ -12,11 +12,24 @@
       <slot v-bind="scope"></slot>
     </template>
   </el-table-column>
+  <!--使用 slot 自定义 header-->
+  <el-table-column
+    v-else-if="$scopedSlots.header"
+    v-bind="$attrs"
+    :key="$attrs.label"
+    :class-name="className"
+    :min-width="minWidth"
+  >
+    <template slot="header" slot-scope="scope">
+      <slot name="header" v-bind="scope"></slot>
+    </template>
+  </el-table-column>
   <!--默认情况使用原始 el-table-column-->
   <el-table-column
     v-else
     v-bind="$attrs"
     :key="$attrs.label"
+    :class-name="className"
     :min-width="minWidth"
   ></el-table-column>
 </template>
@@ -32,7 +45,7 @@ export default {
     },
     // 是否自适应列宽, 默认是
     isFit () {
-      return (this.$parent.$attrs.fitAll !== undefined && this.$parent.$attrs.fitAll !== false) || this.$attrs.fit
+      return (this.$parent.$attrs.fitAll === undefined && this.$attrs.fit === undefined) || (this.$parent.$attrs.fitAll === false && this.$attrs.fit !== undefined)
     },
     // 为存在scope的添加className
     className () {
@@ -43,8 +56,9 @@ export default {
     // 列最小宽度
     minWidth () {
       if (!this.$attrs.label) return undefined
+      if (!this.isFit) return undefined
       const maxOne = Math.max(this.minLength, this.$attrs.label.length * this.fontRate.CHAR_RATE) * this.fontSize + 20
-      return this.$attrs.width || maxOne
+      return this.$attrs.width || Math.max(maxOne, this.getComputedWidth)
     },
     // 字体大小
     fontSize () {
@@ -67,12 +81,24 @@ export default {
           // 详情中的列表需要在nextTick才能生效
           if (this.$scopedSlots.default) {
             // 存在自定义节点
-            const nodes = document.querySelector('.el-table__body-wrapper').querySelectorAll(`.${this.$attrs.prop || `encode-${this.transChar(this.$attrs.label)}`}-column`)
-            if (nodes.length) {
-              // ## 有可能会来不及获取nodes, 就切换菜单进入下一页了, 再研究吧
-              const target = Array.from(nodes).map(item => item.innerText)
-              this.$set(this, 'minLength', this.getMaxLength(target))
-            }
+            setTimeout(() => {
+              // 首次获取不到子节点, setTimeout才行
+              // 可能存在贴边列, 需要使用包含 fixed 的类名
+              const bodyWrapper = this.$attrs.fixed ? document.querySelector(`.el-table__fixed${this.$attrs.fixed === 'right' ? `-${this.$attrs.fixed}` : ''}`).querySelector('.el-table__fixed-body-wrapper') : document.querySelector('.el-table__body-wrapper')
+              const nodes = bodyWrapper.querySelectorAll(`.${this.$attrs.prop || `encode-${this.transChar(this.$attrs.label)}`}-column`)
+              if (nodes.length) {
+                // 有可能会来不及获取nodes, 就切换菜单进入下一页了, 再研究吧
+                const target = []
+                const getComputedWidths = []
+                Array.from(nodes).map(item => {
+                  target.push(item.innerText)
+                  // 有可能存在自定义列内容超出容器, 取 scrollWidth 才行
+                  getComputedWidths.push(item.querySelector('.cell').scrollWidth)
+                })
+                this.getComputedWidth = Math.max(...getComputedWidths)
+                this.$set(this, 'minLength', this.getMaxLength(target))
+              }
+            }, 0)
           } else {
             this.$set(this, 'minLength', this.getMaxLength(val))
           }
@@ -83,6 +109,7 @@ export default {
   data () {
     return {
       minLength: 5, // 初始也不要写成0, 避免未及时设置宽度太丑
+      getComputedWidth: 0, // 自定义列中获取元素计算的宽度
     }
   },
   methods: {

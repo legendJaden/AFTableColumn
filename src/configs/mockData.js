@@ -15,6 +15,7 @@ export default {
       freedomMore2: 'This is a very very lang sentence with many many words.',
       fixedMore: '这是一个固定宽度的列, 并且含有非常多量的字呢',
       fix: '操作1',
+      placeholder: '占位用的',
     },
     {
       fixedLess: '定宽少字',
@@ -24,6 +25,7 @@ export default {
       freedomMore2: 'This is also another very very lang sentence with many many words.',
       fixedMore: '就像我搞出这个表格一样很开心',
       fix: '贴边呢',
+      placeholder: '占位用的',
     },
     {
       fixedLess: '定宽字不多',
@@ -33,6 +35,7 @@ export default {
       freedomMore2: 'Words are glowing in this lang sentence, can you see that?',
       fixedMore: '这是一个固定宽度的列, 并且含有非常多量的字呢',
       fix: '长文字测试一下',
+      placeholder: '占位用的',
     },
   ],
 }
