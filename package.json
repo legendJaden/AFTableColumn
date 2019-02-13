@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "package": "vue-cli-service build --target lib --name auto-fit-table-column ./src/components/TableColumn/index.js",
+    "package": "vue-cli-service build --target lib --name af-table-column ./src/components/AFTableColumn/index.js",
     "lint": "vue-cli-service lint"
   },
   "main": "./dist/af-table-column.common.js",
