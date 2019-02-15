@@ -6,8 +6,8 @@
     <af-table-column label="固定宽度100-多" prop="fixedMore" width="100"></af-table-column>
     <af-table-column label="自由宽度-少1" prop="freedomLess1"></af-table-column>
     <af-table-column label="自由宽度-少2" prop="freedomLess2"></af-table-column>
-    <af-table-column label="自由宽度-多1" prop="freedomMore1"></af-table-column>
-    <af-table-column label="freedom-more2" prop="freedomMore2"></af-table-column>
+    <af-table-column :fontSize="20" label="自由宽度-多1" prop="freedomMore1"></af-table-column>
+    <af-table-column :fontRate="fontRate" label="freedom-more2" prop="freedomMore2"></af-table-column>
     <af-table-column label="占位列" prop="placeholder"></af-table-column>
     <af-table-column label="占位列" prop="placeholder"></af-table-column>
     <af-table-column label="占位列" prop="placeholder"></af-table-column>
@@ -36,7 +36,11 @@
 		},
 
 		data() {
-			return {}
+			return {
+        fontRate: {
+          OTHER_RATE: 1.5
+        },
+      }
 		},
 		methods: {},
 	}

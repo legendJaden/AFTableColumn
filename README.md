@@ -121,6 +121,7 @@ Vue.use(AFTableColumn)
 > 注意: 此字段并非控制样式的 `font-size`
 
 ```
+// 全局配置
 // main.js
 // 定义字体比例
 const fontRate = {
@@ -131,5 +132,26 @@ const fontRate = {
 const fontSize = 16
 // 注册组件
 Vue.use(AFTableColumn, { fontRate, fontSize })
+
+// 局部配置
+// 以上字段也可作为组件的属性, 用于单独设置对应列
+// list.vue
+<template>
+  <el-table>
+    <af-table-column :fontSize="20" label="列1" prop="field1"></af-table-column>
+    <af-table-column :fontRate="fontRate" label="列2" prop="field2"></af-table-column>
+  </el-table>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        fontRate: {
+          OTHER_RATE: 1.5
+        },
+      }
+    }
+  }
+</script>
 ```
 > 备注: 可缺省任意字段, 组件将使用默认值.
