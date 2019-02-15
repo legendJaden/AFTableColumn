@@ -23,48 +23,89 @@ Vue.use(AFTableColumn)
 // list.vue
 <template>
   <el-table :data="data">
-    <af-table-column label="表头1" prop="字段1"></af-table-column>
-    <af-table-column label="表头2" prop="字段2"></af-table-column>
+    
+    <af-table-column label="列1" prop="field1"></af-table-column>
+    <af-table-column label="列2" prop="field2"></af-table-column>
+    
+    <!--也支持简单的自定义内容-->
+    <af-table-column label="列3">
+      <template slot-scope="scope">
+        <div>自定义显示值31: {{ scope.row.field31 }}</div>
+        <div>自定义显示值32: {{ scope.row.field32 }}</div>
+      </template>
+    </af-table-column>
+    <af-table-column label="操作">
+      <template slot-scope="scope">
+        <el-button @click="removeItem">删除</el-button>
+      </template>
+    </af-table-column>
+    
   </el-table>
 </template>
 ```
 
-- 部分不适应, 两种写法:
+- 部分不适应列宽, 两种写法:
 ```
 // list.vue
 <template>
   <el-table :data="data">
     <!--1. 设置 fit 属性为 false-->
-    <af-table-column label="表头1" prop="字段1" :fit="false"></af-table-column>
+    <af-table-column label="列1" prop="field1" :fit="false"></af-table-column>
     
     <!--2. 使用 `ElementUI` 原有的 `el-table-column`-->
-    <el-table-column label="表头2" prop="字段2"></el-table-column>
+    <el-table-column label="列2" prop="field2"></el-table-column>
   </el-table>
 </template>
 ```
 
-- 部分自适应:
+- 部分自适应列宽:
 ```
 // list.vue
-// 实现仅有 表头2 自适应
+// 实现仅有 列2 自适应
 <template>
   <!--在 table 上设置 autoFit 属性为 false-->
   <el-table :data="data" :autoFit="false">
-    <af-table-column label="表头1" prop="字段1"></af-table-column>
+    <af-table-column label="列1" prop="field1"></af-table-column>
     
     <!--在 column 上设置 fit 属性为 true-->
-    <af-table-column label="表头2" prop="字段2" fit></af-table-column>
+    <af-table-column label="列2" prop="field2" fit></af-table-column>
   </el-table>
 </template>
 
 <!--或者其他列使用 ElementUI 原有的 el-table-column-->
 <template>
   <el-table :data="data">
-    <el-table-column label="表头1" prop="字段1"></el-table-column>
-    <af-table-column label="表头2" prop="字段2"></af-table-column>
+    <el-table-column label="列1" prop="field1"></el-table-column>
+    <af-table-column label="列2" prop="field2"></af-table-column>
   </el-table>
 </template>
 ```
+
+> 暂不支持的用法:
+> `column` 的自定义内容中存在过于复杂的组件, 如:
+> ```
+> <el-table>
+>   <af-table-column>
+>     <template slot-scope="scope">
+>       
+>       <el-form>
+>         <el-form-item label="输入框" prop="inputField">
+>           <el-input v-model="formData.inputField"></el-input>
+>         </el-form-item>
+>         <el-form-item label="选择框" prop="selectField">
+>           <el-select v-model="formData.selectField">
+>             <el-option :label="选项1" :value="value1"></el-option>
+>             <el-option :label="选项2" :value="value2"></el-option>
+>             <el-option :label="选项3" :value="value3"></el-option>
+>           </el-select>
+>         </el-form-item>
+>       </el-form>
+>       
+>     </template>
+>   </af-table-column>
+> </el-table>
+> ```
+> 因为组件暂时不能考虑到所有的自定义情况并计算元素实际宽度
 
 ### 配置项
 1. `fontRate`:
@@ -92,4 +133,3 @@ const fontSize = 16
 Vue.use(AFTableColumn, { fontRate, fontSize })
 ```
 > 备注: 可缺省任意字段, 组件将使用默认值.
-
