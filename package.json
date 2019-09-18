@@ -22,7 +22,7 @@
     "*.md"
   ],
   "dependencies": {
-    "vue": "^2.5.22"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
@@ -38,7 +38,7 @@
     "element-ui": "^2.5.4",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
     "root": true,
@@ -49,7 +49,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "vue/no-unused-vars": 0
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

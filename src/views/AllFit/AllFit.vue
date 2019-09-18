@@ -1,5 +1,5 @@
 <template>
-  <el-table border stripe :data="$mockData.tableData">
+  <el-table border stripe :data="$mockData.tableData" size="small">
     <af-table-column label="占位列" prop="placeholder"></af-table-column>
     <af-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></af-table-column>
     <af-table-column label="定宽100少" prop="fixedLess" width="100"></af-table-column>
@@ -21,7 +21,7 @@
     <af-table-column label="占位列" prop="placeholder"></af-table-column>
     <af-table-column label="贴边 (自定义)" fixed="right">
       <template slot-scope="scope">
-        <el-button>{{scope.row.fix}}</el-button>
+        <el-button size="small">{{scope.row.fix}}</el-button>
       </template>
     </af-table-column>
   </el-table>
