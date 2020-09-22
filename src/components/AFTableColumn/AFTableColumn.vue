@@ -1,7 +1,17 @@
 <template>
+  <!-- unscoped slots 用于渲染多级表头-->
+  <el-table-column
+    v-if="$slots.default"
+    v-bind="$attrs"
+    :key="$attrs.label"
+    :class-name="className"
+    :min-width="minWidth"
+  >
+    <slot></slot>
+  </el-table-column>
   <!--判断scopedSlots.default可知道是否存在子元素-->
   <el-table-column
-    v-if="$scopedSlots.default"
+    v-else-if="$scopedSlots.default"
     v-bind="$attrs"
     :key="$attrs.label"
     :class-name="className"
