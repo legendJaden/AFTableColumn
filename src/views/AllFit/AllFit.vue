@@ -1,6 +1,6 @@
 <template>
   <el-table border stripe :data="$mockData.tableData" size="small">
-    <af-table-column label="占位列" prop="placeholder"></af-table-column>
+    <af-table-column label="可排序占位列" sortable prop="placeholder"></af-table-column>
     <af-table-column label="贴边定宽100" prop="fix" width="100" fixed="left"></af-table-column>
     <af-table-column label="定宽100少" prop="fixedLess" width="100"></af-table-column>
     <af-table-column label="固定宽度100-多" prop="fixedMore" width="100"></af-table-column>

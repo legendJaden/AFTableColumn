@@ -56,9 +56,9 @@ export default {
     },
     // 列最小宽度
     minWidth () {
-      if (!this.$attrs.label) return undefined
-      if (!this.isFit) return undefined
-      const maxOne = Math.max(this.minLength, this.$attrs.label.length * this.fontRate.CHAR_RATE) * this.fontSize + 20
+      if (!this.$attrs.label || !this.isFit) return
+      const sortable = ![undefined, false].includes(this.$attrs.sortable)
+      const maxOne = Math.max(this.minLength, (this.$attrs.label.length + (sortable ? 1 : 0)) * this.fontRate.CHAR_RATE) * this.fontSize + 20
       return this.$attrs.width || Math.max(maxOne, this.getComputedWidth)
     },
     // 字体大小
